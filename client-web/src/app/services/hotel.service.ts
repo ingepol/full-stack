@@ -24,8 +24,8 @@ export class HotelService{
         return this._http.get(this.url+'hotel/'+id).map(res => res.json());
     }
 
-    getHotelByName(name){
-        return this._http.get(this.url+'hotel/searchHotels/'+name).map(res => res.json()).catch(this.handleError);
+    byNameAndStars(name,stars){
+        return this._http.get(this.url+'hotel/searchHotels/'+name+'/'+stars).map(res => res.json()).catch(this.handleError);
     }
 
     public handleError(error: Response) {

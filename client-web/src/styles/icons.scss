@@ -16,12 +16,11 @@
     mask: url(../assets/icons/filters/search.svg) no-repeat center;
   }
   &-arrow-up {
-      margin-top: 5px;
+    cursor: pointer;
     -webkit-mask: url(../assets/icons/filters/arrow_up.svg) no-repeat center;
     mask: url(../assets/icons/filters/arrow_up.svg) no-repeat center;
   }
   &-arrow-down {
-    margin-top: 5px;
     -webkit-mask: url(../assets/icons/filters/arrow_down.svg) no-repeat center;
     mask: url(../assets/icons/filters/arrow_down.svg) no-repeat center;
   }
