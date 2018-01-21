@@ -54,26 +54,53 @@ function getHotel(req, res){
 /**
   Method that searches for hotels by name
   @param name
+  @param stars always send at least one level of one star or several
+              levels separated by comma (1,2,3,4,5)
   @exception hotels were not found
   @return List of hotels
 */
 function searchHotels(req, res){
-  console.log('GET /api/hotel/search/:name');
-  let search = req.params.name;
+  console.log('GET /api/hotel/search/:name/:stars');
+  let name = req.params.name;
+  let stars = req.params.stars.split(",");
   if(config.dataJson){
-    let hotels = hotelsJson.filter(function(elem) {
-      return elem.name.toLowerCase().indexOf(search.toLowerCase())>-1;
-    });
-    if(hotels.length === 0) return res.status(404).send({message:'No se encontraron hoteles.'});
-    return res.status(200).send({hotels})
-  }
-  //let regex = {'name' : new RegExp(search, 'i')}, query = { description: regex };
+    let hotelsFinal = [];
+    let hotels = [];
+    if (name!="*") {
+      hotels = hotelsJson.filter(function(elem) {
+        return elem.name.toLowerCase().indexOf(name.toLowerCase())>-1;
+      });
+    } else {
+      hotels = hotelsJson;
+    }
 
-  Hotel.find().byName(search).exec(function(err, hotels) {
-    if(err) return res.status(500).send({message:`Error al realizar la peticion ${err}`});
-    if(hotels.length === 0) return res.status(404).send({message:'No se encontraron hoteles.'});
-      res.status(200).send({ hotels });
+    let hotelsTMP;
+    for (let i = 0; i < stars.length; i++) {
+      hotelsTMP = hotels.filter(function(elem) {
+        return elem.stars == stars[i];
+      });
+      for (let j = 0; j < hotelsTMP.length; j++) {
+        hotelsFinal.push(hotelsTMP[j]);
+      }
+    }
+
+    if(hotelsFinal.length === 0) return res.status(404).send({message:'No se encontraron hoteles.'});
+    return res.status(200).send({hotels : hotelsFinal})
+  }
+
+  if (name!="*") {
+    Hotel.find().byNameAndStars(name, stars).exec(function(err, hotelsByNameAndStars) {
+      if(err) return res.status(500).send({message:`Error al realizar la peticion ${err}`});
+      if(hotelsByNameAndStars.length === 0) return res.status(404).send({message:'No se encontraron hoteles.'});
+      res.status(200).send({ hotels : hotelsByNameAndStars });
     });
+  } else {
+    Hotel.find().byStars(stars).exec(function(err, hotelsByStars) {
+      if(err) return res.status(500).send({message:`Error al realizar la peticion ${err}`});
+      if(hotelsByStars.length === 0) return res.status(404).send({message:'No se encontraron hoteles.'});
+      res.status(200).send({ hotels : hotelsByStars });
+    });
+  }
 }
 
 /**

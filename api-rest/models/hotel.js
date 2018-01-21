@@ -24,5 +24,19 @@ module.exports = function () {
       return this.find({ name: new RegExp(name, 'i') });
     };
 
+    HotelSchema.query.byStars = function(stars) {
+      var arrayStar = JSON.parse("[" + stars + "]");
+      return this.find({ stars: {$in:arrayStar} });
+    };
+
+    HotelSchema.query.byNameAndStars = function(name,stars) {
+      var arrayStar = JSON.parse("[" + stars + "]");
+      return this.find({
+      $and: [
+         { name: new RegExp(name, 'i') },
+         { stars: {$in:arrayStar} }
+      ]});
+   };
+
     return db.model('hotel', HotelSchema);
 }

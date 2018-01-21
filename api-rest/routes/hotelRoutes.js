@@ -9,7 +9,7 @@ const express = require('express');
 const hotelCtrl = require('../controllers/hotelCtrl');
 const api = express.Router();
 
-api.route("/hotel/searchHotels/:name")
+api.route("/hotel/searchHotels/:name/:stars")
   .get(hotelCtrl.searchHotels);
 
 api.route("/hotel")
