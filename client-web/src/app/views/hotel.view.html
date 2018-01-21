@@ -1,0 +1,96 @@
+<!--<form #formHotel="ngForm" (ngSubmit)="onSubmit(); formHotel.reset();">
+  <input type="text" name="nameHotel" [(ngModel)]="nameHotel">
+  <input type="submit" value="Guardar">
+</form>
+
+<h3>Listado de hoteles</h3>
+-->
+<section>
+  <div class="ed-container">
+    <div class="ed-item m-30">
+      <div class="filters filters-header">
+        <strong>Filtros</strong>
+        <img src="../assets/icons/filters/arrow_up.svg" alt="" class="icon to-right to-s">
+        <img src="../assets/icons/filters/arrow_down.svg" alt="" class="icon to-right to-s">
+      </div>
+      <div class="filters filters-search">
+          <div>
+            <img src="../assets/icons/filters/search.svg" alt="" class="icon">
+            <label>Nombre del hotel</label>
+            <img src="../assets/icons/filters/arrow_up.svg" alt="" class="icon to-right">
+            <img *ngIf="activateFilterName == false" src="../assets/icons/filters/arrow_down.svg" alt="" class="icon to-right">
+          </div>
+          <div>
+            <input type="text" name="" value="" placeholder="Ingrese el nombre del hotel">
+            <input type="submit" name="button" value="Aceptar">
+          </div>
+
+
+      </div>
+      <div class="filters filters-starts">
+        <div>
+          <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+          <label>Estrellas</label>
+          <img src="../assets/icons/filters/arrow_up.svg" alt="" class="icon to-right">
+          <img *ngIf="activateFilterStar == false" src="../assets/icons/filters/arrow_down.svg" alt="" class="icon to-right">
+        </div>
+        <div class="check-starts">
+          <div class="check-starts check-starts-all">
+              <input type="checkbox" name="" value=""> <strong>Todas las estrellas</strong>
+          </div>
+          <div class="check-starts check-starts-one">
+              <input type="checkbox" name="" value="">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+          </div>
+          <div class="check-starts check-starts-one">
+              <input type="checkbox" name="" value="">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+          </div>
+          <div class="check-starts check-starts-one">
+              <input type="checkbox" name="" value="">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+          </div>
+          <div class="check-starts check-starts-one">
+              <input type="checkbox" name="" value="">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+          </div>
+          <div class="check-starts check-starts-one">
+              <input type="checkbox" name="" value="">
+              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="ed-item m-70">
+      <div class="ed-container no-padding">
+        <div class="ed-container card-content" *ngFor="let hotel of hotels">
+          <div class="ed-item m-30">
+            <img src="assets/images/hotels/{{hotel.image}}" class="card-img">
+          </div>
+          <div class="ed-item m-50">
+            <label>{{hotel.name}}</label>
+            <span>{{hotel.starts}}</span>
+            <img *ngFor="let amenity of hotel.amenities" src="assets/icons/amenities/{{amenity}}.svg" class="icon">
+          </div>
+          <div class="ed-item m-20">
+            <span>Precio por noche por habitacion</span>
+            <label for="">{{hotel.price}}</label>
+            <input type="submit" name="" value="Ver hotel">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

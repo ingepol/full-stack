@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+@import "config";
+
+body{
+  background: $grey;
+}
+
+.filters {
+  color:$blue;
+  background: white;
+  margin: 9px 0px;
+  &-header{
+    font-size: 12px;
+    color:black;
+    height: 27px;
+    line-height: 27px;
+    padding: 0px 15px;
+  }
+  &-search, &-starts{
+    height: 90px;
+    padding: 15px;
+  }
+  &-starts{
+    height: 205px;
+  }
+}
+
+.check-starts {
+  font-size: 12px;
+  color: black;
+  margin-top: 20px;
+  & input {
+    margin-right: 10px;
+  }
+  &-one {
+    margin: 5px 0px;
+    & img {
+      height: 11px;
+    }
+  }
+}
+
+.icon {
+  height: 15px;
+}
+
+input[type=text] {
+    width: 70%;
+    padding: 7px 10px;
+    margin: 0px 5px;;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 25%;
+    background-color: $darkblue;
+    color: white;
+    padding: 7px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+//Cards
+.card-content {
+  background-color: white;
+  margin: 8px 0px;
+  &-img {
+    padding: 5px;
+  }
+  & label {
+    color: $blue;
+  }
+}
