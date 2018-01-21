@@ -83,6 +83,8 @@ function saveHotel(req, res){
   console.log('POST /api/hotel');
   console.log(req.body);
   let hotel = new Hotel(req.body);
+  hotel.amenities = req.body.amenities.split(',');
+  hotel.dateUpdate = new Date();
   hotel.save((err, hotelStored)=>{
     if(err) res.status(500).send({message:`Error al guardar en la base de datos ${err}`});
     res.status(200).send({hotel:hotelStored});
@@ -98,6 +100,7 @@ function updateHotel(req, res){
   console.log('PUT /api/hotel/accionsbyid/:hotelId');
   let hotelId = req.params.hotelId;
   let update = req.body;
+  update.dateUpdate = new Date();
   if (!ObjectId.isValid(hotelId)) return res.status(500).send({message:"Id invalido"});
   Hotel.findOneAndUpdate({"_id": hotelId}, update, (err, hotelUpdated) => {
     if(err) res.status(500).send({message:`Error al actualizar el hotel ${err}`});

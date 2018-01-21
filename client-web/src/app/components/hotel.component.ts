@@ -11,18 +11,18 @@ export class HotelComponent {
 
   public hotels:Array<Hotel>;
   public nameHotel:String;
-  public activateFilters:boolean;
-  public activateFilterName:boolean;
-  public activateFilterStar:boolean;
+  public activateFilters:String;
+  public activateFilterName:String;
+  public activateFilterStar:String;
 
   constructor(
-    private _hotelService: HotelService;
+    private _hotelService: HotelService
   ){}
 
   ngOnInit(){
-        this.activateFilters = true;
-        this.activateFilterName = true;
-        this.activateFilterStar = true;
+        this.activateFilters = "hide";
+        this.activateFilterName = "show";
+        this.activateFilterStar = "show";
         this._hotelService.getHotels().subscribe(
             result => {
                 this.hotels = result.hotels;
@@ -48,4 +48,9 @@ export class HotelComponent {
                 }
             );
     }
+
+    getStarts = function(start) {
+      return new Array(start);
+    }
+
 }

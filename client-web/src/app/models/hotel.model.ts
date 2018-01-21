@@ -2,7 +2,7 @@ export class Hotel {
     constructor(
       public id:String,
       public name:String,
-      public starts,
+      public stars,
       public price:Number,
       public image:String,
       public amenities:Array<String>

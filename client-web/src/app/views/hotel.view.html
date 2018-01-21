@@ -7,32 +7,36 @@
 -->
 <section>
   <div class="ed-container">
-    <div class="ed-item m-30">
+    <div class="ed-item m-30 l-25">
       <div class="filters filters-header">
         <strong>Filtros</strong>
-        <img src="../assets/icons/filters/arrow_up.svg" alt="" class="icon to-right to-s">
-        <img src="../assets/icons/filters/arrow_down.svg" alt="" class="icon to-right to-s">
+        <div *ngIf="activateFilters == 'hide'" class="icon icon-arrow-up to-right to-s"></div>
+        <div *ngIf="activateFilters == 'hide'" class="icon icon-arrow-down to-right to-s"></div>
       </div>
       <div class="filters filters-search">
           <div>
-            <img src="../assets/icons/filters/search.svg" alt="" class="icon">
-            <label>Nombre del hotel</label>
-            <img src="../assets/icons/filters/arrow_up.svg" alt="" class="icon to-right">
-            <img *ngIf="activateFilterName == false" src="../assets/icons/filters/arrow_down.svg" alt="" class="icon to-right">
+            <div class="icon icon-search"></div>
+            <label>{{ activateFilterName }}</label>
+
+            <div *ngIf="activateFilterName == 'hide'" class="icon icon-arrow-up to-right"></div>
+            <div *ngIf="activateFilterName == 'show'" class="icon icon-arrow-down to-right"></div>
           </div>
           <div>
-            <input type="text" name="" value="" placeholder="Ingrese el nombre del hotel">
-            <input type="submit" name="button" value="Aceptar">
+            <form #formHotel="ngForm" (ngSubmit)="onSubmit(); formHotel.reset();" autocomplete="off">
+              <input type="text" id="nameHotel" name="nameHotel"  placeholder="Ingrese el nombre del hotel" [(ngModel)]="nameHotel" required>
+              <input type="submit" name="button" value="Aceptar">
+            </form>
+
           </div>
 
 
       </div>
       <div class="filters filters-starts">
         <div>
-          <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+          <div class="icon icon-star"></div>
           <label>Estrellas</label>
-          <img src="../assets/icons/filters/arrow_up.svg" alt="" class="icon to-right">
-          <img *ngIf="activateFilterStar == false" src="../assets/icons/filters/arrow_down.svg" alt="" class="icon to-right">
+          <div *ngIf="activateFilterStar == 'hide'" class="icon icon-arrow-up to-right"></div>
+          <div *ngIf="activateFilterStar == 'show'" class="icon icon-arrow-down to-right"></div>
         </div>
         <div class="check-starts">
           <div class="check-starts check-starts-all">
@@ -40,53 +44,64 @@
           </div>
           <div class="check-starts check-starts-one">
               <input type="checkbox" name="" value="">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
           </div>
           <div class="check-starts check-starts-one">
               <input type="checkbox" name="" value="">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
           </div>
           <div class="check-starts check-starts-one">
               <input type="checkbox" name="" value="">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
           </div>
           <div class="check-starts check-starts-one">
               <input type="checkbox" name="" value="">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <div class="icon icon-yellow icon-star"></div>
+              <div class="icon icon-yellow icon-star"></div>
           </div>
           <div class="check-starts check-starts-one">
               <input type="checkbox" name="" value="">
-              <img src="../assets/icons/filters/star.svg" alt="" class="icon">
+              <div class="icon icon-yellow icon-star"></div>
           </div>
 
         </div>
 
       </div>
     </div>
-    <div class="ed-item m-70">
+    <div class="ed-item m-70 l-75">
       <div class="ed-container no-padding">
-        <div class="ed-container card-content" *ngFor="let hotel of hotels">
-          <div class="ed-item m-30">
-            <img src="assets/images/hotels/{{hotel.image}}" class="card-img">
+        <div class="ed-container card-content no-padding" *ngFor="let hotel of hotels">
+          <div class="ed-item m-100 l-30 card-img">
+            <img src="assets/images/hotels/{{hotel.image}}">
           </div>
-          <div class="ed-item m-50">
-            <label>{{hotel.name}}</label>
-            <span>{{hotel.starts}}</span>
-            <img *ngFor="let amenity of hotel.amenities" src="assets/icons/amenities/{{amenity}}.svg" class="icon">
+          <div class="ed-item m-45 l-40 card-info">
+            <strong>{{hotel.name}}</strong>
+            <div class="">
+              <div *ngFor="let i of getStarts(hotel.stars)" class="icon icon-yellow icon-star card-star"></div>
+            </div>
+            <div class="">
+              <!--<img *ngFor="let amenity of hotel.amenities" src="assets/icons/amenities/{{amenity}}.svg" class="card-amenity">-->
+              <div *ngFor="let amenity of hotel.amenities"  [ngClass]="amenity" class="card-amenity">
+
+              </div>
+            </div>
+
           </div>
-          <div class="ed-item m-20">
+          <div class="ed-item m-45 l-25 card-price">
             <span>Precio por noche por habitacion</span>
-            <label for="">{{hotel.price}}</label>
+            <p>
+              <label>ARS</label>
+              <strong>{{hotel.price}}</strong>
+            </p>
             <input type="submit" name="" value="Ver hotel">
           </div>
         </div>

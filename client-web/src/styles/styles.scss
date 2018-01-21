@@ -1,0 +1,175 @@
+/* You can add global styles to this file, and also import other style files */
+@import "config";
+@import "icons";
+
+body{
+  background: $grey;
+}
+
+header {
+  background: $darkblue;
+}
+
+.filters {
+  color:$blue;
+  background: white;
+  margin: 9px 0px;
+  &-header{
+    font-size: 12px;
+    color:black;
+    height: 27px;
+    line-height: 27px;
+    padding: 0px 15px;
+  }
+  &-search, &-starts{
+    height: 90px;
+    padding: 15px;
+  }
+  &-search{
+    & form {
+      margin: 5px 0px;
+    }
+    @include fromTo(s,l) {
+      height: 120px;
+    }
+  }
+  &-starts{
+    height: 205px;
+  }
+}
+
+.check-starts {
+  font-size: 12px;
+  color: black;
+  margin-top: 20px;
+  & input {
+    margin-right: 5px;
+  }
+  &-one {
+    margin: 5px 0px;
+    & img {
+      height: 11px;
+    }
+  }
+}
+
+input[type=text] {
+    width: 56%;
+    padding: 7px 10px;
+    //margin: 0px 5px;;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    @include fromTo(s,l) {
+      width: 100%;
+    }
+}
+
+input[type=submit] {
+    width: 29%;
+    background-color: $darkblue;
+    color: white;
+    padding: 7px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    @include fromTo(s,l) {
+      @include toRight(50%,10px);
+    }
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+//Cards
+.card-content{
+  background-color: white;
+  margin: 8px 0px;
+  margin-top: 9px;
+
+  & .card-img {
+    text-align: center;
+    & img {
+      padding: 17px;
+    }
+  }
+  & strong {
+    display: block;
+    margin-top: 10px;
+    color: $blue;
+    @include to(s) {
+      margin-bottom: 10px;
+    }
+  }
+  & .card-star{
+    height: 18px;
+    width: 18px;
+    margin-right: 5px;
+  }
+  & .card-amenity {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    background-color: $darkgrey;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 5px;
+    @include to(s) {
+      margin-bottom: 20px;
+    }
+  }
+  & .card-info{
+    margin: 10px 10px;
+    border-bottom: 1px dotted grey;
+
+    @include from(m){
+      margin: 25px 0px;
+      margin-left: 4%;
+      border-right: 1px dotted grey;
+      border-bottom: 0px dotted grey;
+    }
+
+    @include from(l) {
+      margin: 10px 0px;
+    }
+
+  }
+  & .card-price {
+    text-align: center;
+    margin:35px 18px;
+    @include to(m) {
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+    @include fromTo(m,l) {
+      margin:35px 6px;
+    }
+    & span {
+      color: $darkgrey;
+      font-size: 12px;
+      display: block;
+    }
+    & p {
+      margin: 8px;
+      & label, & strong {
+        color: $orange;
+        font-size: 26px;
+      }
+      & strong{
+        display: inline;
+      }
+    }
+    & input[type=submit] {
+      width: 80%;
+      font-size: 20px;
+      @include fromTo(s,xl) {
+        @include toCenter(200px);
+        float: none;
+      }
+    }
+
+  }
+}

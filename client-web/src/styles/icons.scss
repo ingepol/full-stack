@@ -1,0 +1,99 @@
+
+.icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: $blue;
+  &-yellow {
+    background-color: $yellow;
+  }
+  &-star {
+    -webkit-mask: url(../assets/icons/filters/star.svg) no-repeat center;
+    mask: url(../assets/icons/filters/star.svg) no-repeat center;
+  }
+  &-search {
+    -webkit-mask: url(../assets/icons/filters/search.svg) no-repeat center;
+    mask: url(../assets/icons/filters/search.svg) no-repeat center;
+  }
+  &-arrow-up {
+      margin-top: 5px;
+    -webkit-mask: url(../assets/icons/filters/arrow_up.svg) no-repeat center;
+    mask: url(../assets/icons/filters/arrow_up.svg) no-repeat center;
+  }
+  &-arrow-down {
+    margin-top: 5px;
+    -webkit-mask: url(../assets/icons/filters/arrow_down.svg) no-repeat center;
+    mask: url(../assets/icons/filters/arrow_down.svg) no-repeat center;
+  }
+
+}
+
+
+.bathrobes {
+  -webkit-mask: url(../assets/icons/amenities/bathrobes.svg) no-repeat center;
+  mask: url(../assets/icons/amenities/bathrobes.svg) no-repeat center;
+}
+.bathtub {
+    -webkit-mask: url(../assets/icons/amenities/bathrobes.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/bathrobes.svg) no-repeat center;
+}
+.beach {
+    -webkit-mask: url(../assets/icons/amenities/beach.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/beach.svg) no-repeat center;
+}
+.beach-pool-facilities {
+    -webkit-mask: url(../assets/icons/amenities/beach-pool-facilities.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/beach-pool-facilities.svg) no-repeat center;
+}
+.business-center {
+    -webkit-mask: url(../assets/icons/amenities/business-center.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/business-center.svg) no-repeat center;
+}
+.children-club {
+    -webkit-mask: url(../assets/icons/amenities/children-club.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/children-club.svg) no-repeat center;
+}
+.coffe-maker {
+    -webkit-mask: url(../assets/icons/amenities/coffe-maker.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/coffe-maker.svg) no-repeat center;
+}
+.deep-soaking-bathtub {
+    -webkit-mask: url(../assets/icons/amenities/deep-soaking-bathtub.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/deep-soaking-bathtub.svg) no-repeat center;
+}
+.fitness-center {
+    -webkit-mask: url(../assets/icons/amenities/fitness-center.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/fitness-center.svg) no-repeat center;
+}
+.garden {
+    -webkit-mask: url(../assets/icons/amenities/garden.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/garden.svg) no-repeat center;
+}
+.kitchen-facilities {
+    -webkit-mask: url(../assets/icons/amenities/kitchen-facilities.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/kitchen-facilities.svg) no-repeat center;
+}
+.newspaper {
+    -webkit-mask: url(../assets/icons/amenities/newspaper.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/newspaper.svg) no-repeat center;
+}
+.nightclub {
+    -webkit-mask: url(../assets/icons/amenities/nightclub.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/nightclub.svg) no-repeat center;
+}
+.restaurant {
+    -webkit-mask: url(../assets/icons/amenities/restaurant.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/restaurant.svg) no-repeat center;
+}
+.safety-box {
+    -webkit-mask: url(../assets/icons/amenities/safety-box.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/safety-box.svg) no-repeat center;
+}
+.separate-bredroom {
+    -webkit-mask: url(../assets/icons/amenities/separate-bredroom.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/separate-bredroom.svg) no-repeat center;
+}
+.sheets {
+    -webkit-mask: url(../assets/icons/amenities/sheets.svg) no-repeat center;
+    mask: url(../assets/icons/amenities/sheets.svg) no-repeat center;
+}
