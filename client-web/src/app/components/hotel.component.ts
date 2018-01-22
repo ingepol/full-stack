@@ -1,3 +1,7 @@
+/**
+  Component that controls the actions and the information displayed
+  in the hotels view.
+*/
 import { Component } from '@angular/core';
 import { Hotel } from '../models/hotel.model';
 import { HotelService } from '../services/hotel.service'

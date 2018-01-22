@@ -1,3 +1,6 @@
+/**
+  Model that represents the information of a hotel
+*/
 export class Hotel {
     constructor(
       public id:String,

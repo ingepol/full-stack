@@ -18,7 +18,7 @@ const hotelsJson = require("../data/data.json");
 function getHotels(req, res){
   console.log('GET /api/hotel');
   if(config.dataJson){
-    return res.status(200).send({ hotelsJson });
+    return res.status(200).send({ hotels : hotelsJson });
   }
   Hotel.find({}, (err, hotels) => {
     if(err) return res.status(500).send({message:`Error al realizar la peticion ${err}`});

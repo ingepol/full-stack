@@ -1,3 +1,7 @@
+/*
+  Module where all the components are declared, import all the libraries
+  and provide all the necessary resources for the app to work
+*/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';

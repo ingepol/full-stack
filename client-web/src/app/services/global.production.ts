@@ -1,6 +1,6 @@
 /**
-  File that contains development information such as the Restfull API url.
-  To not use it rename it global.development.ts 
+  File that contains production information such as the Restfull API url.
+  To not use it rename it global.producton.ts
   or to use it rename it  global.ts
 */
 export var GLOBAL = {
